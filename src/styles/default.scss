@@ -1,0 +1,295 @@
+/* Text styles */
+@import './fn';
+
+@mixin Title-Class-1 {
+  font-family: 'SFProDisplay';
+  font-size: topx(28);
+  font-weight: bold;
+  line-height: 1.43;
+  color: $black;
+}
+
+@mixin Title-Class-2 {
+  font-family: 'SFProDisplay';
+  font-size: topx(24);
+  font-weight: bold;
+  line-height: 1.33;
+  color: $black;
+}
+
+@mixin -\32 {
+  font-family: 'PingFangSC';
+  font-size: topx(24);
+  font-weight: 600;
+  line-height: 1.33;
+  color: $black;
+}
+
+@mixin -\33 {
+  font-family: 'PingFangSC';
+  font-size: topx(18);
+  font-weight: 600;
+  line-height: 1.33;
+  color: $black;
+}
+
+@mixin Title-Class-3 {
+  font-family: 'SFProDisplay';
+  font-size: topx(18);
+  font-weight: bold;
+  line-height: 1.33;
+  color: $black;
+}
+
+@mixin -\31 {
+  font-family: 'PingFangSC';
+  font-size: topx(28);
+  font-weight: 600;
+  color: $black;
+}
+
+@mixin iOS-UIKitBody-AltsEmphasized {
+  font-family: 'SFProText';
+  font-size: topx(17);
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: topx(-0.4);
+  color: $overlay-dark;
+}
+
+@mixin Search-BarPlaceholder {
+  font-family: 'SFProText';
+  font-size: topx(17);
+  line-height: 1.29;
+  letter-spacing: topx(-0.4);
+  color: #8e8e93;
+}
+
+@mixin TintButton---Center {
+  font-family: 'SFProText';
+  font-size: topx(17);
+  letter-spacing: topx(-0.4);
+  text-align: center;
+  color: #0076ff;
+}
+
+@mixin NavigationTitle {
+  font-family: 'SFProText';
+  font-size: topx(17);
+  font-weight: 600;
+  letter-spacing: topx(-0.4);
+  text-align: center;
+  color: $black-two;
+}
+
+@mixin Search-BarInput {
+  font-family: 'SFProText';
+  font-size: topx(17);
+  line-height: 1.29;
+  letter-spacing: topx(-0.4);
+  color: $overlay-dark;
+}
+
+@mixin TintButton---Right---Bold {
+  font-family: 'SFProText';
+  font-size: topx(17);
+  font-weight: 600;
+  letter-spacing: topx(-0.4);
+  text-align: right;
+  color: #0076ff;
+}
+
+@mixin TintButton---Right {
+  font-family: 'SFProText';
+  font-size: topx(17);
+  letter-spacing: topx(-0.4);
+  text-align: right;
+  color: #007aff;
+}
+
+@mixin -\34 {
+  font-family: 'PingFangSC';
+  font-size: topx(16);
+  font-weight: 600;
+  line-height: 1.38;
+  color: $black;
+}
+
+@mixin iOS-UIKitSubhead-AltsShort {
+  font-family: 'SFProText';
+  font-size: topx(15);
+  line-height: 1.2;
+  letter-spacing: topx(-0.2);
+  color: $overlay-dark;
+}
+
+@mixin TintButton---Left {
+  font-family: 'SFProText';
+  font-size: topx(17);
+  letter-spacing: topx(-0.4);
+  color: #007aff;
+}
+
+@mixin iOS-UIKitSubhead-AltsEmphasized {
+  font-family: 'SFProText';
+  font-size: topx(15);
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: topx(-0.2);
+  color: $overlay-dark;
+}
+
+@mixin NavigationTitle-Small {
+  font-family: 'SFProText';
+  font-size: topx(15);
+  font-weight: 600;
+  letter-spacing: topx(-0.2);
+  text-align: center;
+  color: $black-two;
+}
+
+@mixin Text-Class-5-CN {
+  font-family: 'PingFangSC';
+  font-size: topx(14);
+  font-weight: 600;
+  line-height: 1.43;
+  color: $black;
+}
+
+@mixin Text-Class-5-EN {
+  font-family: 'SFProDisplay';
+  font-size: topx(14);
+  font-weight: bold;
+  line-height: 1.43;
+  color: $black;
+}
+
+@mixin unknown {
+  font-family: 'PingFangSC';
+  font-size: topx(14);
+  line-height: 1.71;
+  color: $black;
+}
+
+@mixin TintButton---Segmented {
+  font-family: 'SFProText';
+  font-size: topx(13);
+  letter-spacing: topx(-0.1);
+  text-align: center;
+  color: #007aff;
+}
+
+@mixin NavigationPrompt {
+  font-family: 'SFUIText';
+  font-size: topx(13);
+  letter-spacing: topx(-0.1);
+  text-align: center;
+  color: $black-two;
+}
+
+@mixin NavigationSegmented-Label-Active {
+  font-family: 'SFProText';
+  font-size: topx(13);
+  letter-spacing: topx(-0.1);
+  text-align: center;
+  color: $overlay-light;
+}
+
+@mixin Text-Class-6 {
+  font-family: 'PingFangSC';
+  font-size: topx(13);
+  line-height: 1.38;
+  color: $black;
+}
+
+@mixin class-8 {
+  font-family: PingFangSC;
+  font-size: 11px;
+  line-height: 1.45;
+  color: $G1;
+}
+
+@mixin iOS-UIKitFootnote {
+  font-family: 'SFProText';
+  font-size: topx(13);
+  line-height: 1.38;
+  letter-spacing: topx(-0.1);
+  color: $overlay-dark;
+}
+
+@mixin Status-BarRight-Black {
+  font-family: 'SFProText';
+  font-size: topx(12);
+  text-align: right;
+  color: $black-two;
+}
+
+@mixin Text-Class-8 {
+  font-family: 'PingFangSC';
+  font-size: topx(11);
+  line-height: 1.45;
+  color: $black;
+}
+
+@mixin NavigationTab-Bar-Label {
+  font-family: 'SFProText';
+  font-size: topx(10);
+  font-weight: 500;
+  letter-spacing: topx(0.1);
+  text-align: center;
+  color: #8e8e93;
+}
+
+@mixin TintButton---Tab-Bar {
+  font-family: 'SFProText';
+  font-size: topx(10);
+  font-weight: 500;
+  letter-spacing: topx(0.1);
+  text-align: center;
+  color: #0076ff;
+}
+
+@mixin Text-Class-9 {
+  font-family: 'PingFangSC';
+  font-size: topx(10);
+  line-height: 1.4;
+  color: $black;
+}
+
+@mixin NavigationSubtitle {
+  font-family: 'SFProText';
+  font-size: topx(11);
+  letter-spacing: topx(0.1);
+  text-align: center;
+  color: $black-two;
+}
+
+@mixin NavigationDescription {
+  font-family: 'SFProText';
+  font-size: topx(12);
+  text-align: center;
+  color: $black-two;
+}
+
+@mixin Text-Style-2 {
+  font-family: 'PingFangSC';
+  font-size: topx(12);
+  line-height: 1.33;
+  text-align: right;
+  color: $brown-grey;
+}
+
+@mixin Text-Style-3 {
+  font-family: 'PingFangSC';
+  font-size: topx(13);
+  line-height: 1.38;
+  color: $black;
+}
+
+@mixin Text-Style {
+  font-family: 'PingFangSC';
+  font-size: topx(16);
+  font-weight: 600;
+  line-height: 1.38;
+  color: $black;
+}

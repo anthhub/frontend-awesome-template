@@ -1,0 +1,194 @@
+/* Color palette */
+
+$overlay-grey: rgba(242, 242, 242, 1);
+
+$Mayo: #fff7c7;
+$Dangerous-Red: #ea2959;
+$Neutral-Violet: #5436e0;
+$Happy-Mint: #73e6c0;
+$Climax-Orange: #fe5a31;
+$Overlay-Dark-60: rgba(0, 0, 0, 0.6);
+$Overlay-Dark-30: rgba(0, 0, 0, 0.3);
+$Overlay-light-80: rgba(255, 255, 255, 0.8);
+$E0E0E0: #e0e0e0;
+$overlay-light: #fff;
+$black: #1a1a1a;
+$overlay-dark: #000;
+$sun-yellow: #fde127;
+$very-light-pink: #f2f2f2;
+$black-two: #030303;
+$brown-grey: #a1a1a1;
+$user-bgc: #f4f4f4;
+$order-icon-dot: #ffc522;
+$error: #ea2959;
+$disabled: #e0e0e0;
+$disabled-font: #f2f2f2;
+$bd-color: #e0e0e0;
+
+// new var
+
+// brand colors
+$woofYellow: #ffc522;
+$woofBlack: #160101;
+
+// main colors
+// practical Yellow
+$pYellow: #ffc522;
+// Neutral Blue
+$nBlue: #3728de;
+// Dangerous red
+$dRed: #ea2959;
+
+/* gray scale */
+$B: #000;
+$W: #fff;
+$G9: #1a1a1a;
+$G5: #282828;
+$G4: #717171;
+$G3: #a1a1a1;
+$G2: #cacaca;
+$G1: #f2f2f2;
+
+/* overlay or gradient */
+// overlay
+// black
+$OB1: rgba(0, 0, 0, 0.3);
+$OB2: rgba(0, 0, 0, 0.6);
+$OB3: rgba(0, 0, 0, 0.8);
+$OB4: rgba(0, 0, 0, 1);
+// withe
+$OW1: rgba(256, 256, 256, 0.8);
+// todo gradient
+
+/* typography */
+// english font
+$font-en: 'SFProDisplay';
+$font-en-bold: 'SFProDisplay-Bold';
+$font-en-regular: 'SFProDisplay-Regular';
+// chinese font
+$font-cn: 'PingFangSC';
+$font-bold: 'PingFangSC-Semibold';
+$font-regular: 'PingFangSC-Regular';
+
+// default
+$font-default: $font-en;
+
+// title
+@mixin title($s: 28, $lh: 40, $f: $font-en-bold, $fw: 600, $c: $G9) {
+  font-size: topx($s);
+  line-height: topx($lh);
+  font-family: $f;
+  font-weight: $fw;
+  color: $c;
+}
+
+// 一级标题
+@mixin title-1($c: $G9, $f: $font-en-bold, $fw: 600) {
+  @include title(28, 40, $f, $fw, $c);
+}
+
+@mixin title-1-en($c: $G9) {
+  @include title-1($c, $font-en-bold, 700);
+}
+
+@mixin title-1-cn($c: $G9) {
+  @include title-1($c, $font-bold);
+}
+
+// 二级标题
+@mixin title-2($c: $G9, $f: $font-en-bold, $fw: 600) {
+  @include title(24, 32, $f, $fw, $c);
+}
+
+@mixin title-2-en($c: $G9) {
+  @include title-2($c, $font-en-bold, 700);
+}
+
+@mixin title-2-cn($c: $G9) {
+  @include title-2($c, $font-bold);
+}
+
+// 三级标题
+@mixin title-3($c: $G9, $f: $font-en-bold, $fw: 600) {
+  @include title(18, 24, $f, $fw, $c);
+}
+
+@mixin title-3-en($c: $G1) {
+  @include title-3($c, $font-en-bold, 700);
+}
+
+@mixin title-3-cn($c: $G1) {
+  @include title-3($c, $font-bold);
+}
+
+// 四级标题
+@mixin title-4($c: $G9, $f: $font-en-bold, $fw: 600) {
+  @include title(16, 22, $f, $fw, $c);
+}
+
+// G1 / G2 / G3 / G4 / G9 / R / Y
+@mixin title-4-en($c: $G9) {
+  @include title-4($c, $font-en-bold, 700);
+}
+
+@mixin title-4-cn($c: $G9) {
+  @include title-4($c, $font-bold);
+}
+
+// 五级标题
+@mixin title-5($c: $G9, $lh: 20, $f: $font-en-bold, $fw: 400) {
+  @include title(14, $lh, $f, $fw, $c);
+}
+
+@mixin title-5-en($c: $G9, $lh: 20) {
+  @include title-5($c, $lh, $font-en-bold, 400);
+}
+
+@mixin title-5-cn($c: $G9, $lh: 20) {
+  @include title-5($c, $lh, $font-bold);
+}
+
+// text
+@mixin text($s: 14, $lh: 20, $f: $font-default, $c: $G9, $fw: 400) {
+  font-size: topx($s);
+  line-height: topx($lh);
+  font-family: $f;
+  font-weight: $fw;
+  color: $c;
+}
+
+// 五级text
+@mixin text-5($c: $G9, $lh: 20, $f: $font-default, $fw: 400) {
+  @include text(14, $lh, $f, $c, $fw);
+}
+// 六级text
+@mixin text-6($c: $G9, $f: $font-default, $fw: 400) {
+  @include text(13, 18, $f, $c, $fw);
+}
+// 七级text
+@mixin text-7($c: $G9, $f: $font-default, $fw: 400) {
+  @include text(12, 16, $f, $c, $fw);
+}
+// 八级text
+@mixin text-8($c: $G9, $f: $font-default, $fw: 400) {
+  @include text(11, 16, $f, $c, $fw);
+}
+// 九级text
+@mixin text-9($c: $G9, $f: $font-default, $fw: 400) {
+  @include text(10, 14, $f, $c, $fw);
+}
+
+// system info
+$Ipx-b: 68/2;
+
+// $bd: topx(1) solid $bd-color;
+$bd: topx(1) solid
+  rgba(
+    $color: $bd-color,
+    $alpha: 0.5
+  );
+
+$baseZIndex: 99;
+
+$cdn: 'https://static.fashionipo.com';
+$cdnImg: 'https://static.fashionipo.com/img/woof';

@@ -1,0 +1,9 @@
+/* 定义函数
+-------------------------- */
+
+// px
+@function topx($arg, $base: 2) {
+  // @return $arg * 1PX;
+  $px: $base * 1px;
+  @return $arg * $px;
+}

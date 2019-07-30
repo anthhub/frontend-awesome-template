@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'generate-icon';
+    src: url('data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAASMAAsAAAAAByQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADsAAABUIIslek9TLzIAAAFEAAAAPwAAAFZAjEzJY21hcAAAAYQAAABcAAABmnl69cBnbHlmAAAB4AAAALoAAADktnzlg2hlYWQAAAKcAAAALgAAADYTOFdYaGhlYQAAAswAAAAbAAAAJAPrAflobXR4AAAC6AAAAA8AAAAUB9AAAGxvY2EAAAL4AAAADAAAAAwAZgCcbWF4cAAAAwQAAAAfAAAAIAESACFuYW1lAAADJAAAASkAAAJSZNqSKnBvc3QAAARQAAAAOQAAAErBtRGbeJxjYGRgYOBiMGCwY2BycfMJYeDLSSzJY5BiYGGAAJA8MpsxJzM9kYEDxgPKsYBpDiBmg4gCACY7BUgAeJxjYGScwDiBgZWBgdGWMY6BgcENSn9gkGBoZGBgYmBlZsAKAtJcUxgcPjJ+ZGH8AuTqMn4FCzOCCACUOwnbAHic7ZG7DYAwDESfk4MCMQgFQzAEFfsvkAmCP4zBSe8snywXNrAA3TkdgT0YodtTy7yzZS6OnFHkQ3O6W7j3Sm8+GztWfu3p19cpblXk9VpB1F7EF4YK9AJ7JA+leJxjYGQAAsYvjMIM3AwMwopGYiJsyopKaiZmkoyHuPj5uf7ZAUlGYX5RPj5RfqBSJqj6LwzMDOwMDLaMiqLsyoLGjF+eq6mBEFACquYr41cGHgYhBgZVET5GJT1GEztGIzlGVnV2cXN1xi/OxR3FzmDi3z1npdStSr9coHzn4noXkAAD0AaQOS8ZXwLNEWAQYWAwhxsDNFLd2FTZFIh/OeY6OOQ2gYhIAyDggXKARLyByikGBgCW1DB4AAB4nGNgZGBgAOJ1+lN04/ltvjJwM34BijDcFOq2RKYZvzJ+BVIcDEwgHgAYMgmUAAB4nGNgZGBg/MLAACH//2f8ysDIgApYAXMPBOYAeJxjYGBgYPyCigEijAPVAAAAAAAAGAAqAE4AcnicY2BkYGBgZRBlYGYAASYg5gJCBob/YD4DAAsjATQAeJx9kDtuwkAURa/5RQElQkqUItWkSRNhPl1YAPQU9GBmDMj2OOMBiT7ryAqyDtaRVaTOtXkNSGFGnjn3vPdsyQC6OCJAuQLcVWe5arhhOnGd9CjcIL8IN9FBKNyifxdu4w0T4Q4e8ME3BI1bmmd8Ctdwjy/hOv23cIN8FG7iCT/CLfpf4TbmQVe4g9fAxDrTbuF1bxPZbKbjXbJwZ+4szLUrNjZTw3Bw5qcSVmp5UMU+HnlvlHE2VRObeZ0kVuXObnXkw7X3+bjfN+LDyKaIoZHxcVjA8+5hgwiWbsYUY4eEFXel7//KvLIFc5kUhvzvgyv904vKijNLHHgW2HNuROthmA17LFLSpJosuxNuS5NXtS1NRB9iXU3lGKPPbS76w+rb6R9mmG2bAAAAeJxjYGKAAFYG7ICVkYmRmZGFkZWRjYE1NzOvtJilIKe0mL24NDk5tbiYvTyxKC8zL52BAQCgBwocAAAA')
+        format('woff');
+}
+
+.ui-icon {
+    line-height: 1;
+    display: inline-block;
+}
+
+.ui-icon:before {
+    font-family: generate-icon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    vertical-align: top;
+}
+
+.ui-icon-minus:before {
+    content: '\f101';
+}
+.ui-icon-plus:before {
+    content: '\f102';
+}
+.ui-icon-success:before {
+    content: '\f103';
+}
+.ui-icon-warning:before {
+    content: '\f104';
+}

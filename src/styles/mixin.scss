@@ -1,0 +1,87 @@
+@import './fn';
+
+/* methods
+-------------------------- */
+// 背景图片地址和大小
+@mixin bg($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+// 定位上下左右居中
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 定位上下居中
+@mixin ct {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// 定位左右居中
+@mixin cl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// 宽高
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// 字体大小，颜色
+@mixin sc($size, $color) {
+  font-size: $size;
+  color: $color;
+}
+
+// flex 布局和 子元素 对其方式
+@mixin fj($type: space-between) {
+  display: flex;
+  justify-content: $type;
+}
+
+// flex 布局 row
+@mixin row($row: center, $col: center) {
+  display: flex;
+  justify-content: $row;
+  align-items: $col;
+}
+
+// flex 布局 col
+@mixin col($row: center, $col: center) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $row;
+  align-items: $col;
+}
+
+// size
+@mixin size($w, $h: $w) {
+  width: topx($w);
+  height: topx($h);
+}
+
+// mult ellipsis
+@mixin multEllipsis($l: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $l;
+  -webkit-box-orient: vertical;
+}
+
+//  ellipsis
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
