@@ -10,6 +10,8 @@ import './index.scss'
 class Index extends PageCompExt {
   static defaultProps = {}
 
+  state = { a: 1 }
+
   config: Config = {
     navigationBarTitleText: '第一页',
   }
@@ -20,6 +22,8 @@ class Index extends PageCompExt {
 
   increment() {
     this.app.router.navigateTo('index')
+
+    this.setState({ a: 1, b: 1 })
   }
 
   render() {

@@ -5,18 +5,22 @@ import StoreExt from '@lib/extent/store'
 import { action, observable, runInAction } from 'mobx'
 
 @storeEnhancer
-class CounterStore extends StoreExt {
+class CounterStore extends StoreExt<CounterStore> {
   @observable counter = 0
 
-  @action
-  increment() {
-    this.counter++
-  }
+  @observable text = ''
 
-  @action
-  decrement() {
-    this.counter--
-  }
+  // @action
+  // increment() {
+  //   this.counter++
+
+  //   this.setProps({ counter: 1 })
+  // }
+
+  // @action
+  // decrement() {
+  //   this.counter--
+  // }
 
   @action
   incrementAsync() {

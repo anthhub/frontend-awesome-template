@@ -4,7 +4,8 @@ import { inject, observer } from '@tarojs/mobx'
 
 import checkDefaultProps from './checkDefaultProps'
 
-import extendsProps from './extendsProps'
+import checkStyle from './checkStyle'
+
 import mergedProps from './mergedProps'
 import syncRoutes from './syncRoutes'
 
@@ -26,4 +27,4 @@ export const compEnhancer = compose(
   checkDefaultProps,
 )
 
-export const storeEnhancer = compose()
+export const storeEnhancer = compose(checkStyle)

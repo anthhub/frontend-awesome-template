@@ -19,13 +19,18 @@ class Index extends PageCompExt {
   }
 
   increment() {
-    const { counterStore } = this.props
-    counterStore.increment()
+    const a: any = 1
+
+    const {
+      counterStore: { setProps: counterStoreRest },
+    } = this.props
+    counterStoreRest({ counter: 1, text: '' })
+    // counterStore.increment()
   }
 
   decrement() {
     const { counterStore } = this.props
-    counterStore.decrement()
+    // counterStore.decrement()
   }
 
   incrementAsync() {
