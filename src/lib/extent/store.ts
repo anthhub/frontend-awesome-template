@@ -1,5 +1,6 @@
 import { storeApplication } from '@application'
 import { default as api } from '@http'
+import { myTimeToLocal } from '@lib/utils/date'
 import { action } from 'mobx'
 
 let propsMergedQueue: any = []
@@ -51,7 +52,7 @@ export default abstract class StoreExt<T> {
   @action.bound
   private updater(updaterObject: IPlainObject) {
     const indexer = (this as unknown) as IPlainObject
-
+    console.log('%c%s', 'color: #ee7f08;font-size:15px', `===TQY===: mobx 时间旅行 ${myTimeToLocal(new Date().getTime()) + '  ' + new Date().getTime()} `, updaterObject)
     Object.keys(updaterObject).map(key => {
       const value = updaterObject[key]
       if (!key) {
