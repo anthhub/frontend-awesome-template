@@ -18,13 +18,17 @@ class Index extends PageCompExt {
     console.log('componentWillReact')
   }
 
-  increment() {
+  async increment() {
     const a: any = 1
 
     const {
-      counterStore: { setProps: counterStoreRest },
+      counterStore: { setProps: counterStoreSet, counter },
     } = this.props
-    counterStoreRest({ counter: 1, text: '' })
+    counterStoreSet({ counter: counter + 1, text: counter + 1 + '2' })
+    counterStoreSet(store => ({ counter: store.counter + 10, text: store.counter + 10 + '2' }))
+    counterStoreSet({ counter: counter + 10, text: counter + 10 + '2' })
+    counterStoreSet({ counter: counter + 100, text: counter + 100 + '2' })
+
     // counterStore.increment()
   }
 
@@ -39,6 +43,7 @@ class Index extends PageCompExt {
   }
 
   render() {
+    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Index -> render -> render', '第三页render第三页render第三页render')
     const {
       counterStore: { counter },
     } = this.props
