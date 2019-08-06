@@ -43,7 +43,8 @@ class Index extends PageCompExt {
   }
 
   render() {
-    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Index -> render -> render', '第三页render第三页render第三页render')
+    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Index -> render -> render', '第二页')
+
     const {
       counterStore: { counter },
     } = this.props

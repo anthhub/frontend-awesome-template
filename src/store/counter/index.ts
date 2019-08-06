@@ -12,6 +12,8 @@ class CounterStore extends StoreExt<CounterStore> {
 
   @observable text = ''
 
+  @observable object = {}
+
   // @action
   // increment() {
   //   this.counter++
@@ -26,7 +28,7 @@ class CounterStore extends StoreExt<CounterStore> {
 
   @controlLoading()
   async incrementAsync() {
-    await wait(1000)
+    await wait(3000)
 
     // setTimeout(() => {
     //   runInAction(() => this.counter++)

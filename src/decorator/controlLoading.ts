@@ -7,7 +7,10 @@ export function controlLoading(type: 'spin' | 'skeleton' = 'spin') {
 
     const newMethod = async function (this: any, ...args: any[]) {
       let value = null
-      Taro.showLoading()
+      Taro.showLoading({
+        title: '加载中',
+        mask: true,
+      })
 
       try {
         value = await method.apply(this, args)

@@ -13,6 +13,6 @@ class Request {
 
 const request = new Request()
 
-request.post('https://api-beta.heywoof.com/user/client/status', {})
+// request.post('https://api-beta.heywoof.com/user/client/status', {})
 
 export default request

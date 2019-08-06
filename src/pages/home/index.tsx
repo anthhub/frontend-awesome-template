@@ -8,7 +8,7 @@ import './index.scss'
 
 @pageEnhancer
 class Index extends PageCompExt {
-  static defaultProps = {}
+  static defaultProps = { xx: 1 }
 
   state = { a: 1 }
 
@@ -27,6 +27,7 @@ class Index extends PageCompExt {
   }
 
   render() {
+    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Index -> render -> rendermergedProps', '第一页', this.mergedProps.counterStore.object)
     return (
       <View className="index">
         <Button onClick={this.increment}>+</Button>

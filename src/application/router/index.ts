@@ -64,7 +64,6 @@ class Router {
    */
   @action syncPageVisible(page: Pages | null) {
     this.pageVisible = page
-    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Router -> @actionsyncPageVisible -> page', page)
   }
 
   /**
