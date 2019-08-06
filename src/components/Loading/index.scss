@@ -1,0 +1,78 @@
+@import '../../styles/utils';
+
+@-webkit-keyframes stretchdelay {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+@keyframes stretchdelay {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+.loading {
+  width: 100%;
+  // padding-top: topx(69);
+  .spinner {
+    height: topx(6);
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .rect {
+      background-color: #000;
+      height: 100%;
+      width: topx(6);
+      margin: 0 topx(3);
+      border-radius: 50%;
+      display: inline-block;
+      -webkit-animation: stretchdelay 2s infinite ease-in-out;
+      animation: stretchdelay 2s infinite ease-in-out;
+    }
+    .rect2 {
+      -webkit-animation-delay: 0.66s;
+      animation-delay: 0.66s;
+    }
+    .rect3 {
+      -webkit-animation-delay: 1.3s;
+      animation-delay: 1.3s;
+    }
+  }
+  // .loading-cover {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   height: topx(6);
+  //   flex-wrap: nowrap;
+  //   text {
+  //     display: block;
+  //     width: topx(6);
+  //     height: topx(6);
+  //     border-radius: 50%;
+  //     margin-right: topx(6);
+  //   }
+  //   text:last-child {
+  //     margin-right: 0;
+  //   }
+  //   .first {
+  //     background-color: $very-light-pink;
+  //   }
+  //   .second {
+  //     background-color: $G5;
+  //   }
+  //   .third {
+  //     background-color: $G3;
+  //   }
+  // }
+}

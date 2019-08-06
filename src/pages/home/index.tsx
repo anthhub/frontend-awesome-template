@@ -4,6 +4,7 @@ import Taro, { Config } from '@tarojs/taro'
 import { pageEnhancer } from '@decorator'
 import { PageCompExt } from '@lib/extent/comp'
 
+import Warpper from '@container/Warpper'
 import './index.scss'
 
 @pageEnhancer
@@ -29,9 +30,11 @@ class Index extends PageCompExt {
   render() {
     console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Index -> render -> rendermergedProps', '第一页', this.mergedProps.counterStore.object)
     return (
-      <View className="index">
-        <Button onClick={this.increment}>+</Button>
-      </View>
+      <Warpper>
+        <View className="index">
+          <Button onClick={this.increment}>+</Button>
+        </View>
+      </Warpper>
     )
   }
 }

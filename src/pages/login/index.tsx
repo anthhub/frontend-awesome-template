@@ -4,6 +4,7 @@ import Taro, { Config } from '@tarojs/taro'
 import { pageEnhancer } from '@decorator'
 import { PageCompExt } from '@lib/extent/comp'
 
+import Warpper from '@container/Warpper'
 import './index.scss'
 
 @pageEnhancer
@@ -21,9 +22,11 @@ class Index extends PageCompExt {
     } = this.props
 
     return (
-      <View className="index">
-        <Text>{counter}</Text>
-      </View>
+      <Warpper>
+        <View className="index">
+          <Text>{counter}</Text>
+        </View>
+      </Warpper>
     )
   }
 }

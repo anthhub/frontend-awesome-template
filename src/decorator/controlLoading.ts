@@ -1,5 +1,5 @@
+import view from '@store/view'
 import Taro from '@tarojs/taro'
-
 // // 函数开始和结束加入钩子
 export function controlLoading(type: 'spin' | 'skeleton' = 'spin') {
   return function (this: any, _target: any, _propertyKey: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>) {
@@ -7,17 +7,19 @@ export function controlLoading(type: 'spin' | 'skeleton' = 'spin') {
 
     const newMethod = async function (this: any, ...args: any[]) {
       let value = null
-      Taro.showLoading({
-        title: '加载中',
-        mask: true,
-      })
+      // Taro.showLoading({
+      //   title: '加载中',
+      //   mask: true,
+      // })
+      view.setProps({ showSkeleton: true })
 
       try {
         value = await method.apply(this, args)
       } catch (error) {
         throw error
       } finally {
-        Taro.hideLoading()
+        // Taro.hideLoading()
+        view.setProps({ showSkeleton: false })
       }
 
       return value
