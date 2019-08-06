@@ -1,8 +1,10 @@
 import { storeEnhancer } from '@decorator'
+import { controlLoading } from '@decorator/controlLoading'
 import { watchPageVisible } from '@decorator/watchPageVisible'
 import { watchRoute } from '@decorator/watchRoute'
 import StoreExt from '@lib/extent/store'
 import { action, observable, runInAction } from 'mobx'
+import { wait } from 'tank-utils'
 
 @storeEnhancer
 class CounterStore extends StoreExt<CounterStore> {
@@ -22,11 +24,13 @@ class CounterStore extends StoreExt<CounterStore> {
   //   this.counter--
   // }
 
-  @action
-  incrementAsync() {
-    setTimeout(() => {
-      runInAction(() => this.counter++)
-    }, 1000)
+  @controlLoading()
+  async incrementAsync() {
+    await wait(1000)
+
+    // setTimeout(() => {
+    //   runInAction(() => this.counter++)
+    // }, 1000)
   }
 
   @watchRoute('index', 'always', (ins: any) => ({ a: ins.counter }))
