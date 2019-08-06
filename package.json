@@ -43,6 +43,7 @@
     "mobx": "4.8.0",
     "nerv-devtools": "^1.4.0",
     "nervjs": "^1.4.0",
+    "reflect-metadata": "^0.1.13",
     "tank-utils": "^2.1.5"
   },
   "devDependencies": {
@@ -60,6 +61,7 @@
     "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "custom-tslint-rules-collection": "^1.2.0",
     "eslint": "^5.16.0",
     "eslint-config-taro": "1.3.5",
     "eslint-plugin-import": "^2.12.0",

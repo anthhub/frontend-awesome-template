@@ -5,10 +5,10 @@ import { reaction } from 'mobx'
  */
 export function watchProps(cb: (...args: any[]) => any = () => ({})) {
   // tslint:disable-next-line: only-arrow-functions
-  return function (target: any, _propertyKey: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>) {
+  return function (this: any, target: any, _propertyKey: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>) {
     const method = descriptor.value as (...args: any[]) => any
 
-    const newMethod = function (...args: any[]) {
+    const newMethod = function (this: any, ...args: any[]) {
       // tslint:disable-next-line: no-invalid-this
       if (!this.store) {
         return

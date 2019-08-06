@@ -1,9 +1,8 @@
-import { reverseObject } from '@lib/utils/object'
+import { compareDeep, reverseObject } from '@lib/utils/object'
 import * as Taro from '@tarojs/taro'
 import { autobind } from 'core-decorators'
 import { action, computed, observable, toJS } from 'mobx'
 
-import { watchProps } from '@decorator/watchProps'
 import { H5Pages, h5PagesMap, loginPages, Pages, pagesMap } from './../../route'
 
 const routeList: IStringObject = reverseObject(pagesMap)
@@ -11,9 +10,6 @@ type PagesRoutes = Array<{ page: Pages; params: IPlainObject }>
 
 @autobind
 class Router {
-  // 专用属性, 勿用
-  readonly backParamsMap: IPlainObject = {}
-
   /**
    * 是否有上个页面
    */
@@ -54,6 +50,10 @@ class Router {
   @computed get curUrl() {
     return this.toUrl(this.curPage, this.curPagePrams)
   }
+  // 专用属性, 勿用
+  readonly backParamsMap: IPlainObject = {}
+
+  @observable pageShowing: Pages | null = null
 
   @observable private historyPagesRoutes: PagesRoutes = [{ page: 'home', params: {} }]
 
@@ -62,16 +62,29 @@ class Router {
   /**
    * 专用方法,勿用
    */
+  @action syncPageShowing(page: Pages | null) {
+    this.pageShowing = page
+    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Router -> @actionsyncPageShowing -> this.pageShowing', this.pageShowing)
+  }
 
+  /**
+   * 专用方法,勿用
+   */
   @action syncRoutes() {
     const wxRoutes = Taro.getCurrentPages()
     this.direction = wxRoutes.length >= this.historyPagesRoutes.length ? 'forward' : 'back'
     const tempRoutes = wxRoutes.map(item => item.route).map((v, i) => ({ page: routeList[v], params: wxRoutes[i].options })) as PagesRoutes
     const tempRoutesLast = tempRoutes[tempRoutes.length - 1] || {}
+
+    if (tempRoutesLast.page === this.curPage && compareDeep(tempRoutesLast.params, this.curPagePrams) && tempRoutes.length === this.historyPagesRoutes.length) {
+      return
+    }
+
     if (!this.isForward) {
       tempRoutesLast.params = { ...tempRoutesLast.params, ...this.backParamsMap[tempRoutesLast.page] }
     }
 
+    // 更新路由
     this.historyPagesRoutes = tempRoutes
 
     console.log(
@@ -86,6 +99,7 @@ class Router {
       toJS(this.historyPagesRoutes).map(item => item.page),
       '路由方向',
       this.direction,
+      this.curUrl,
     )
   }
 

@@ -7,11 +7,13 @@ import checkDefaultProps from './checkDefaultProps'
 import checkStyle from './checkStyle'
 
 import mergedProps from './mergedProps'
+import syncPageShowing from './syncPageShowing'
 import syncRoutes from './syncRoutes'
 
 export const pageEnhancer = compose(
   inject((it: any) => it as any),
   observer,
+  syncPageShowing,
   syncRoutes,
   checkDefaultProps,
 )

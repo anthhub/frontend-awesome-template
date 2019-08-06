@@ -52,3 +52,59 @@ export function objMerge<U, V>(target: U & IPlainObject, source: V & IPlainObjec
     sourceObj as IPlainObject,
   )
 }
+
+export function compareDeep(origin: IPlainObject, target: IPlainObject) {
+  // null的情况
+  if (origin === null && target === null) {
+    return true
+  }
+
+  if (origin === undefined && target === undefined) {
+    return true
+  }
+
+  if (typeof origin !== typeof target) {
+    return false
+  }
+
+  // 数组的情况; 数组可能包含对象
+  if (Array.isArray(origin) && Array.isArray(target)) {
+    if (origin.length !== target.length) {
+      return false
+    } else {
+      for (let i = 0; i < origin.length; i++) {
+        if (typeof origin[i] !== typeof target[i]) {
+          return false
+        }
+        if (!compareDeep(origin[i], target[i])) {
+          return false
+        }
+      }
+      return true
+    }
+  }
+
+  // 对象的情况
+  if (typeof origin === 'object' && typeof target === 'object') {
+    if (origin !== null && target !== null && Object.keys(origin).length !== Object.keys(target).length) {
+      return false
+    }
+  }
+
+  if (typeof target === 'object') {
+    if (typeof origin !== 'object') {
+      return false
+    }
+    for (const key of Object.keys(target)) {
+      if (typeof origin[key] !== typeof target[key]) {
+        return false
+      }
+      if (!compareDeep(origin[key], target[key])) {
+        return false
+      }
+    }
+    return true
+  } else {
+    return origin === target
+  }
+}

@@ -1,4 +1,5 @@
 import { storeEnhancer } from '@decorator'
+import { watchPageShowing } from '@decorator/watchPageShowing'
 import { watchProps } from '@decorator/watchProps'
 import { watchRoute } from '@decorator/watchRoute'
 import StoreExt from '@lib/extent/store'
@@ -39,9 +40,9 @@ class CounterStore extends StoreExt<CounterStore> {
     console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: IndexStore11111111111111 -> ins', aaaaaaaa, this)
   }
 
-  @watchProps(ins => ins.counter)
+  @watchPageShowing('index')
   add(aaaaaaaa = 333333344444) {
-    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: CounterStore -> add -> add aaaaaaaa', aaaaaaaa, this.counter)
+    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: CounterStore -> add -> add watchPageShowing index', aaaaaaaa, this.counter)
   }
 }
 
