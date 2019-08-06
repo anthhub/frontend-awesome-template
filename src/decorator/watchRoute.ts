@@ -1,7 +1,6 @@
 import router from '@application/router'
 import { Pages } from '@route'
 
-import { compareDeep } from '@lib/utils/object'
 import { reaction } from 'mobx'
 
 /**

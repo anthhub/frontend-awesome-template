@@ -53,7 +53,7 @@ class Router {
   // 专用属性, 勿用
   readonly backParamsMap: IPlainObject = {}
 
-  @observable pageShowing: Pages | null = null
+  @observable pageVisible: Pages | null = null
 
   @observable private historyPagesRoutes: PagesRoutes = [{ page: 'home', params: {} }]
 
@@ -62,9 +62,9 @@ class Router {
   /**
    * 专用方法,勿用
    */
-  @action syncPageShowing(page: Pages | null) {
-    this.pageShowing = page
-    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Router -> @actionsyncPageShowing -> this.pageShowing', this.pageShowing)
+  @action syncPageVisible(page: Pages | null) {
+    this.pageVisible = page
+    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Router -> @actionsyncPageVisible -> page', page)
   }
 
   /**
@@ -75,6 +75,8 @@ class Router {
     this.direction = wxRoutes.length >= this.historyPagesRoutes.length ? 'forward' : 'back'
     const tempRoutes = wxRoutes.map(item => item.route).map((v, i) => ({ page: routeList[v], params: wxRoutes[i].options })) as PagesRoutes
     const tempRoutesLast = tempRoutes[tempRoutes.length - 1] || {}
+
+    this.syncPageVisible(tempRoutesLast.page)
 
     if (tempRoutesLast.page === this.curPage && compareDeep(tempRoutesLast.params, this.curPagePrams) && tempRoutes.length === this.historyPagesRoutes.length) {
       return

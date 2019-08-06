@@ -6,7 +6,7 @@ import { reaction } from 'mobx'
 /**
  * 监听路由
  */
-export function watchPageShowing(page: Pages, showing: 'show' | 'hide' | 'always' = 'show') {
+export function watchPageVisible(page: Pages, visible: 'show' | 'hide' | 'always' = 'show') {
   return function (this: any, target: any, _propertyKey: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>) {
     const method = descriptor.value as (...args: any[]) => any
 
@@ -17,16 +17,17 @@ export function watchPageShowing(page: Pages, showing: 'show' | 'hide' | 'always
     descriptor.value = newMethod
 
     reaction(
-      () => router.pageShowing === page,
-      flag => {
-        if (!flag) {
+      () => router.pageVisible,
+      pageVisible => {
+        if (page !== router.curPage) {
           return
         }
-        if (router.pageShowing && (showing === 'show' || showing === 'always')) {
-          return newMethod.apply(target, [flag])
+
+        if (pageVisible === page && (visible === 'show' || visible === 'always')) {
+          return newMethod.apply(target, [pageVisible])
         }
-        if (!router.pageShowing && (showing === 'hide' || showing === 'always')) {
-          return newMethod.apply(target, [flag])
+        if (!pageVisible && (visible === 'hide' || visible === 'always')) {
+          return newMethod.apply(target, [pageVisible])
         }
       },
     )
