@@ -16,7 +16,7 @@ export default abstract class StoreExt<T> {
   private isBatchingUpdates = true
 
   @action.bound
-  setProps<K extends keyof T>(propsCb: ((store: T) => Pick<T, K> & IPlainObject) | Pick<T, K> & IPlainObject) {
+  setProps<K extends keyof T>(propsCb: ((store: T) => Pick<T, K> & IPlainObject) | Pick<T, K> & IPlainObject) : Promise<Pick<T, K> & IPlainObject> {
     this.isBatchingUpdates = false
     propsMergedQueue.push(propsCb)
 
@@ -44,7 +44,7 @@ export default abstract class StoreExt<T> {
         this.updater(propsMergedObject)
 
         propsMergedQueue = []
-        resolve()
+        resolve(propsMergedObject)
       })
     })
   }
@@ -52,7 +52,7 @@ export default abstract class StoreExt<T> {
   @action.bound
   private updater(updaterObject: IPlainObject) {
     const indexer = (this as unknown) as IPlainObject
-    console.log('%c%s', 'color: #ee7f08;font-size:15px', `===TQY===: mobx 时间旅行 ${myTimeToLocal(new Date().getTime()) + '  ' + new Date().getTime()} `, updaterObject)
+    console.log('%c%s', 'color: #ee7f08;font-size:15px', ` mobx 时间旅行 ${myTimeToLocal(new Date().getTime()) + '  ' + new Date().getTime()} `, updaterObject)
     Object.keys(updaterObject).map(key => {
       const value = updaterObject[key]
       if (!key) {

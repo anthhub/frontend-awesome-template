@@ -3,22 +3,25 @@ import './index.scss'
 import Loading from '@components/Loading'
 import { PageCompExt } from '@lib/extent/comp'
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 
 import { pageCompEnhancer } from '@decorator'
 
+type Props = {
+  theme?: 'dark' | 'light'
+}
+
 @pageCompEnhancer
-class Warpper extends PageCompExt {
-  static defaultProps = {}
+class SkeletonWarpper extends PageCompExt<Props> {
+  static defaultProps = { theme: 'light' }
 
   render() {
     const {
       viewStore: { showSkeleton },
+      theme,
     } = this.props
-    console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Warpper -> render -> showSkeleton', showSkeleton)
     return (
       <View className="warpper">
-        <View className={`curtain ${showSkeleton ? '' : 'hide'} `}>
+        <View className={`curtain ${showSkeleton ? '' : 'hide'} ${theme}`}>
           <View className="loader">
             <Loading />
           </View>
@@ -30,4 +33,4 @@ class Warpper extends PageCompExt {
   }
 }
 
-export default Warpper
+export default SkeletonWarpper

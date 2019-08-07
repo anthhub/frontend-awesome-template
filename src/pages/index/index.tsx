@@ -1,10 +1,10 @@
 import { Button, Text, View } from '@tarojs/components'
-import Taro, { Config } from '@tarojs/taro'
+import taro, { Config } from '@tarojs/taro'
 
 import { pageEnhancer } from '@decorator'
 import { PageCompExt } from '@lib/extent/comp'
 
-import Warpper from '@container/Warpper'
+import SkeletonWarpper from '@container/SkeletonWarpper'
 import './index.scss'
 
 @pageEnhancer
@@ -51,7 +51,7 @@ class Index extends PageCompExt {
     } = this.props
 
     return (
-      <Warpper>
+      <SkeletonWarpper>
         <View className="index">
           <Button onClick={this.increment}>+</Button>
           <Button onClick={this.decrement}>-</Button>
@@ -59,7 +59,7 @@ class Index extends PageCompExt {
           <Text>{counter}</Text>
           <Button onClick={() => this.app.router.navigateTo('login')}> 第三页 </Button>
         </View>
-      </Warpper>
+      </SkeletonWarpper>
     )
   }
 }
