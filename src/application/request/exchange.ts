@@ -1,25 +1,34 @@
 import { composeMiddleware } from './compose'
 import { fetchData } from './fetch'
-import * as interceptors from './interceptors'
+import { interceptors } from './interceptors'
 
 class Exchange {
   private readonly fetchData: (...argas: any[]) => Promise<any>
 
-  private readonly middleware: Middleware[] = []
+  private middleware: Middleware[] = []
 
   constructor(_fetchData: (...argas: any[]) => Promise<any>) {
     this.fetchData = _fetchData
   }
 
-  async fetch(option: Param<IQurey<any>>) {
-    const req = option
-    const res = {}
-    return this.callback({ req, res: res as any }).catch((err: any) => console.warn('顶部捕获异常!', err))
+  async fetch(option: Param<IQurey<any>>): Promise<IResult<any>> {
+    const ctx = { req: option, res: {} as any }
+    return this.callback(ctx).catch((err: any) => console.warn('顶部捕获异常!', err))
   }
 
-  use(fn: Middleware) {
-    this.middleware.push(fn)
+  use(fn: Middleware | Middleware[]) {
+    if (typeof fn === 'function') {
+      this.middleware.push(fn)
+    }
+    if (Array.isArray(fn)) {
+      this.middleware = this.middleware.concat(fn)
+    }
     return this
+  }
+
+  private async getResult(ctx: Context, next: any) {
+    await next()
+    return ctx.res
   }
 
   private async toRequest(ctx: Context, next: any) {
@@ -28,14 +37,13 @@ class Exchange {
   }
 
   private callback(ctx: Context) {
-    const toRequest = this.toRequest.bind(this)
-    const fn = composeMiddleware([...this.middleware, toRequest])
+    const fn = composeMiddleware([this.getResult.bind(this), ...this.middleware, this.toRequest.bind(this)])
     return fn(ctx, null as any)
   }
 }
 
 const exchange = new Exchange(fetchData)
 
-Object.values(interceptors).map(interceptor => exchange.use(interceptor))
+exchange.use(interceptors)
 
 export default exchange

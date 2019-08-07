@@ -16,7 +16,7 @@ export default abstract class StoreExt<T> {
   private isBatchingUpdates = true
 
   @action.bound
-  setProps<K extends keyof T>(propsCb: ((store: T) => Pick<T, K> & IPlainObject) | Pick<T, K> & IPlainObject) : Promise<Pick<T, K> & IPlainObject> {
+  setProps<K extends keyof T>(propsCb: ((store: T) => Pick<T, K> & IPlainObject) | Pick<T, K> & IPlainObject): Promise<Pick<T, K> & IPlainObject> {
     this.isBatchingUpdates = false
     propsMergedQueue.push(propsCb)
 

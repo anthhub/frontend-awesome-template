@@ -25,10 +25,9 @@ export function composeMiddleware(middleware: Middleware[]) {
       }
       try {
         return Promise.resolve(
-          // tslint:disable-next-line: no-shadowed-variable
-          fn(context, function next() {
+          fn(context, () => {
             return dispatch(i + 1)
-          }),
+          })
         )
       } catch (err) {
         return Promise.reject(err)

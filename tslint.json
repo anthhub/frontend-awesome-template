@@ -7,17 +7,17 @@
       "options": [200]
     },
     "max-file-line-count": {
-      "options": [240]
+      "options": [300]
     },
     "object-literal-sort-keys": false,
     "no-console": true
   },
   "rules": {
     "trailing-comma": [true],
-    "max-file-line-count": [true, 240],
+    "max-file-line-count": [true, 300],
     "max-classes-per-file": true,
     "match-default-export-name": true,
-
+    "import-name": false,
     "no-duplicate-imports": true,
     "interface-name": true,
     "import-spacing": true,
