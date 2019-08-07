@@ -13,7 +13,14 @@ class Exchange {
 
   async fetch(option: Param<IQurey<any>>): Promise<IResult<any>> {
     const ctx = { req: option, res: {} as any }
-    return this.callback(ctx).catch((err: any) => console.warn('顶部捕获异常!', err))
+    let rs = null
+    try {
+      rs = await this.callback(ctx)
+    } catch (error) {
+      console.warn('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: Exchange -> error', error)
+      throw error
+    }
+    return rs
   }
 
   use(fn: Middleware | Middleware[]) {
@@ -28,7 +35,7 @@ class Exchange {
 
   private async getResult(ctx: Context, next: any) {
     await next()
-    return ctx.res
+    return ctx.res.data && ctx.res.data.data
   }
 
   private async toRequest(ctx: Context, next: any) {

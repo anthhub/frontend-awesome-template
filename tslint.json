@@ -4,7 +4,7 @@
   "jsRules": {
     "no-construct": true,
     "max-line-length": {
-      "options": [200]
+      "options": [300]
     },
     "max-file-line-count": {
       "options": [300]
@@ -21,7 +21,7 @@
     "no-duplicate-imports": true,
     "interface-name": true,
     "import-spacing": true,
-    "max-line-length": [true, 200],
+    "max-line-length": [true, 300],
     "semicolon": [true, "never"],
     "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
     "object-literal-sort-keys": false,
