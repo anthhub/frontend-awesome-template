@@ -1,6 +1,6 @@
 import { compareDeep, reverseObject } from '@lib/utils/object'
 import * as Taro from '@tarojs/taro'
-import { autobind } from 'core-decorators'
+
 import { action, computed, observable, toJS } from 'mobx'
 
 import { H5Pages, h5PagesMap, loginPages, Pages, pagesMap } from './../../route'
@@ -8,7 +8,6 @@ import { H5Pages, h5PagesMap, loginPages, Pages, pagesMap } from './../../route'
 const routeList: IStringObject = reverseObject(pagesMap)
 type PagesRoutes = Array<{ page: Pages; params: IPlainObject }>
 
-@autobind
 class Router {
   /**
    * 是否有上个页面
@@ -100,7 +99,7 @@ class Router {
       toJS(this.historyPagesRoutes).map(item => item.page),
       '路由方向',
       this.direction,
-      this.curUrl,
+      this.curUrl
     )
   }
 
@@ -113,7 +112,7 @@ class Router {
         pre[curr] = encodeURIComponent(params[curr] as any)
         return pre
       },
-      {} as IPlainObject,
+      {} as IPlainObject
     )
     return this.toUrl(page, newParams)
   }
