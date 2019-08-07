@@ -1,4 +1,4 @@
-import { storeApplication } from '@application'
+import { storeCtx } from '@context'
 import { default as api } from '@http'
 import { myTimeToLocal } from '@lib/utils/date'
 import { action } from 'mobx'
@@ -11,7 +11,7 @@ export default abstract class StoreExt<T> {
   }
   static rootStore: IRootStore
   protected readonly api = api
-  protected readonly app = storeApplication
+  protected readonly ctx = storeCtx
 
   private isBatchingUpdates = true
 

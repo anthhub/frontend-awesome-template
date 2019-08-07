@@ -4,7 +4,7 @@ import Loading from '@components/Loading'
 import { PageCompExt } from '@lib/extent/comp'
 import { View } from '@tarojs/components'
 
-import { pageCompEnhancer } from '@decorator'
+import { pageCompEnhancer } from '@decorators'
 
 type Props = {
   theme?: 'dark' | 'light'

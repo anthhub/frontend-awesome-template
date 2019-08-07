@@ -1,4 +1,4 @@
-import storage from '@application/storage'
+import storage from '@context/storage'
 import { action, computed, observable, reaction } from 'mobx'
 
 class User {
@@ -43,7 +43,7 @@ class User {
       userInfo => {
         storage.setStorageSync('userInfo', userInfo)
         storage.setStorageSync('token', userInfo.token || '')
-      },
+      }
     )
   }
 }

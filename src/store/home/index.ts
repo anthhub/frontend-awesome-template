@@ -1,4 +1,4 @@
-import { storeEnhancer } from '@decorator'
+import { storeEnhancer } from '@decorators'
 
 @storeEnhancer
 class HomeStore {}

@@ -1,4 +1,4 @@
-import { compApplication } from '@application'
+import { compCtx } from '@context'
 import { Component } from '@tarojs/taro'
 
 export default abstract class CompExt<P = {}, S = {}> extends Component<P, S> {
@@ -10,7 +10,7 @@ export default abstract class CompExt<P = {}, S = {}> extends Component<P, S> {
     addGlobalClass: true,
   }
 
-  protected readonly app = compApplication
+  protected readonly ctx = compCtx
 
   setState<K extends keyof S>(state: ((prevState: Readonly<S>, props: P) => Pick<S, K> | S) | (Pick<S, K> | S), callback?: () => any): Promise<S> {
     return new Promise(resolve => {

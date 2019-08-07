@@ -1,4 +1,4 @@
-import router from '@application/router'
+import router from '@context/router'
 import { Pages } from '@route'
 
 import { reaction } from 'mobx'
@@ -21,7 +21,7 @@ export function watchRoute(page: Pages, direction: 'forword' | 'back' | 'always'
         () => backParamsCb(target),
         backParams => {
           router.backParamsMap[page] = { ...router.backParamsMap[page], ...backParams }
-        },
+        }
       )
     }
 
@@ -39,7 +39,7 @@ export function watchRoute(page: Pages, direction: 'forword' | 'back' | 'always'
         if (!router.isForward && (direction === 'back' || direction === 'always')) {
           return newMethod.apply(target, [flag])
         }
-      },
+      }
     )
 
     return descriptor

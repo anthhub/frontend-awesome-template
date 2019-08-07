@@ -1,4 +1,4 @@
-import { storeEnhancer } from '@decorator'
+import { storeEnhancer } from '@decorators'
 import StoreExt from '@lib/extent/store'
 import { observable } from 'mobx'
 

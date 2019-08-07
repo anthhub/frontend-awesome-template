@@ -1,7 +1,7 @@
 import { Button, Text, View } from '@tarojs/components'
-import taro, { Config } from '@tarojs/taro'
+import Taro, { Config } from '@tarojs/taro'
 
-import { pageEnhancer } from '@decorator'
+import { pageEnhancer } from '@decorators'
 import { PageCompExt } from '@lib/extent/comp'
 
 import SkeletonWarpper from '@container/SkeletonWarpper'
@@ -57,7 +57,7 @@ class Index extends PageCompExt {
           <Button onClick={this.decrement}>-</Button>
           <Button onClick={this.incrementAsync}>Add Async</Button>
           <Text>{counter}</Text>
-          <Button onClick={() => this.app.router.navigateTo('login')}> 第三页 </Button>
+          <Button onClick={() => this.ctx.router.navigateTo('login')}> 第三页 </Button>
         </View>
       </SkeletonWarpper>
     )

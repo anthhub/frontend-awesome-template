@@ -1,4 +1,4 @@
-import router from '@application/router'
+import router from '@context/router'
 import { Pages } from '@route'
 
 import { reaction } from 'mobx'
@@ -29,7 +29,7 @@ export function watchPageVisible(page: Pages, visible: 'show' | 'hide' | 'always
         if (!pageVisible && (visible === 'hide' || visible === 'always')) {
           return newMethod.apply(target, [pageVisible])
         }
-      },
+      }
     )
 
     return descriptor

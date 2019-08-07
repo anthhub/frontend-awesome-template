@@ -1,7 +1,7 @@
 import { Button, Text, View } from '@tarojs/components'
 import Taro, { Config } from '@tarojs/taro'
 
-import { pageEnhancer } from '@decorator'
+import { pageEnhancer } from '@decorators'
 import { PageCompExt } from '@lib/extent/comp'
 
 import SkeletonWarpper from '@container/SkeletonWarpper'

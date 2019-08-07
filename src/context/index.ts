@@ -6,6 +6,6 @@ import storage from './storage'
 import system from './system'
 import user from './user'
 
-export const storeApplication = { system, storage, message, master, router, user, request }
+export const storeCtx = { system, storage, message, master, router, user, request }
 
-export const compApplication = { system, message, router, user }
+export const compCtx = { system, message, router, user }

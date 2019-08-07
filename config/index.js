@@ -38,11 +38,11 @@ const config = {
     '@styles': path.resolve(__dirname, '..', 'src/styles'),
 
     '@dataPool': path.resolve(__dirname, '..', 'src/dataPool'),
-    '@decorator': path.resolve(__dirname, '..', 'src/decorator'),
+    '@decorators': path.resolve(__dirname, '..', 'src/decorators'),
     '@config': path.resolve(__dirname, '..', 'src/config'),
 
     '@container': path.resolve(__dirname, '..', 'src/container'),
-    '@application': path.resolve(__dirname, '..', 'src/application'),
+    '@context': path.resolve(__dirname, '..', 'src/context'),
   },
   copy: {
     patterns: [],

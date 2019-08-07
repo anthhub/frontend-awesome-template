@@ -1,7 +1,7 @@
 import { Button, Text, View } from '@tarojs/components'
-import taro, { Config } from '@tarojs/taro'
+import Taro, { Config } from '@tarojs/taro'
 
-import { pageEnhancer } from '@decorator'
+import { pageEnhancer } from '@decorators'
 import { PageCompExt } from '@lib/extent/comp'
 
 import SkeletonWarpper from '@container/SkeletonWarpper'
@@ -22,7 +22,7 @@ class Index extends PageCompExt {
   }
 
   increment() {
-    this.app.router.navigateTo('index')
+    this.ctx.router.navigateTo('index')
 
     this.setState({ a: 1, b: 1 })
   }
