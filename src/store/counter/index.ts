@@ -26,7 +26,7 @@ class CounterStore extends StoreExt<CounterStore> {
   //   this.counter--
   // }
 
-  @controlLoading()
+  // @controlLoading()
   async incrementAsync() {
     await wait(3000)
     await this.setProps(({ counter }) => ({ counter: counter + 1 }))

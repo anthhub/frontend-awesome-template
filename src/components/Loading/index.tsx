@@ -1,12 +1,13 @@
 import './index.scss'
 
+import { compEnhancer } from '@decorators'
 import { View } from '@tarojs/components'
 import Taro, { Component } from '@tarojs/taro'
-import { autobind } from 'core-decorators'
+
 let timerID: any
 interface IProps {}
 
-@autobind
+@compEnhancer
 class Loading extends Component<IProps> {
   state = {
     currentPage: 0,
@@ -28,7 +29,7 @@ class Loading extends Component<IProps> {
         if (this.state.currentPage === 2) {
           this.state.currentPage = -1
         }
-      },
+      }
     )
   }
 

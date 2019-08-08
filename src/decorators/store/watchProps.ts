@@ -4,16 +4,14 @@ import { reaction } from 'mobx'
  * 监听路由
  */
 export function watchProps(cb: (...args: any[]) => any = () => ({})) {
-  // tslint:disable-next-line: only-arrow-functions
   return function (this: any, target: any, _propertyKey: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>) {
     const method = descriptor.value as (...args: any[]) => any
 
     const newMethod = function (this: any, ...args: any[]) {
-      // tslint:disable-next-line: no-invalid-this
       if (!this.store) {
         return
       }
-      // tslint:disable-next-line: no-invalid-this
+
       return method.apply(this, args)
     }
     descriptor.value = newMethod
@@ -26,7 +24,7 @@ export function watchProps(cb: (...args: any[]) => any = () => ({})) {
         }
 
         return newMethod.apply(target, [flag])
-      },
+      }
     )
     return descriptor
   }

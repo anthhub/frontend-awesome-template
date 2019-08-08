@@ -5,7 +5,8 @@ import { pageEnhancer } from '@decorators'
 import { PageCompExt } from '@lib/extent/comp'
 
 import SkeletonWarpper from '@container/SkeletonWarpper'
-import { disabledTillEnd } from '@decorators/shared/disabledTillEnd'
+
+import { throttleDecorator } from '@decorators/shared/throttleDecorator'
 import './index.scss'
 
 @pageEnhancer
@@ -20,16 +21,15 @@ class Index extends PageCompExt {
     console.log('componentWillReact')
   }
 
+  @throttleDecorator(1000)
   async increment() {
-    const a: any = 1
-
     const {
       counterStore: { setProps: counterStoreSet, counter },
     } = this.props
     counterStoreSet({ counter: counter + 1, text: counter + 1 + '2' })
-    counterStoreSet(store => ({ counter: store.counter + 10, text: store.counter + 10 + '2' }))
-    counterStoreSet({ counter: counter + 10, text: counter + 10 + '2' })
-    counterStoreSet({ counter: counter + 100, text: counter + 100 + '2' })
+    // counterStoreSet(store => ({ counter: store.counter + 10, text: store.counter + 10 + '2' }))
+    // counterStoreSet({ counter: counter + 10, text: counter + 10 + '2' })
+    // counterStoreSet({ counter: counter + 100, text: counter + 100 + '2' })
 
     // counterStore.increment()
   }
@@ -39,7 +39,6 @@ class Index extends PageCompExt {
     // counterStore.decrement()
   }
 
-  @disabledTillEnd()
   async incrementAsync() {
     const { counterStore } = this.props
     await counterStore.incrementAsync()
