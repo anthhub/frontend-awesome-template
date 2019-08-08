@@ -6,7 +6,10 @@ import { PageCompExt } from '@lib/extent/comp'
 
 import SkeletonWarpper from '@container/SkeletonWarpper'
 
-import { throttleDecorator } from '@decorators/shared/throttleDecorator'
+import { controlLoading } from '@decorators/shared/controlLoading'
+import { deprecate } from '@decorators/shared/deprecate'
+import { disabledTillEnd } from '@decorators/shared/disabledTillEnd'
+// import { throttleDecorator } from '@decorators/shared/throttleDecorator'
 import './index.scss'
 
 @pageEnhancer
@@ -21,7 +24,7 @@ class Index extends PageCompExt {
     console.log('componentWillReact')
   }
 
-  @throttleDecorator(1000)
+  @deprecate('1000')
   async increment() {
     const {
       counterStore: { setProps: counterStoreSet, counter },
@@ -39,6 +42,7 @@ class Index extends PageCompExt {
     // counterStore.decrement()
   }
 
+  @controlLoading('skeleton')
   async incrementAsync() {
     const { counterStore } = this.props
     await counterStore.incrementAsync()

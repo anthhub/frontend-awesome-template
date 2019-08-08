@@ -13,6 +13,7 @@
     "no-console": true
   },
   "rules": {
+    "ban-comma-operator": true,
     "trailing-comma": [true],
     "max-file-line-count": [true, 300],
     "max-classes-per-file": true,
