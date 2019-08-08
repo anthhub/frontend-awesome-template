@@ -1,4 +1,4 @@
-export default function identifyType<T extends new (...args: any[]) => any>(WrappedComponent: T) {
+export default function identifyClassType<T extends new (...args: any[]) => any>(WrappedComponent: T) {
   return class extends WrappedComponent {
     protected $$myType: '$$store' | '$$pureComp' | '$$connectedStoreComp' | '$$pageComp' | null = null
 
