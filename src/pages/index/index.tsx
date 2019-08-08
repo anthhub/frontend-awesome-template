@@ -5,6 +5,7 @@ import { pageEnhancer } from '@decorators'
 import { PageCompExt } from '@lib/extent/comp'
 
 import SkeletonWarpper from '@container/SkeletonWarpper'
+import { disabledTillEnd } from '@decorators/shared/disabledTillEnd'
 import './index.scss'
 
 @pageEnhancer
@@ -38,9 +39,10 @@ class Index extends PageCompExt {
     // counterStore.decrement()
   }
 
-  incrementAsync() {
+  @disabledTillEnd()
+  async incrementAsync() {
     const { counterStore } = this.props
-    counterStore.incrementAsync()
+    await counterStore.incrementAsync()
   }
 
   render() {

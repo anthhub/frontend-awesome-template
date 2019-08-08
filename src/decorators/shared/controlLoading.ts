@@ -1,5 +1,5 @@
 import view from '@store/view'
-import Taro from '@tarojs/taro'
+
 // // 函数开始和结束加入钩子
 export function controlLoading(type: 'spin' | 'skeleton' = 'spin') {
   return function (this: any, _target: any, _propertyKey: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>) {

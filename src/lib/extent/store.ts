@@ -9,7 +9,11 @@ export default abstract class StoreExt<T> {
   protected get store() {
     return StoreExt.rootStore
   }
+  protected get router() {
+    return this.ctx.router
+  }
   static rootStore: IRootStore
+
   protected readonly api = api
   protected readonly ctx = storeCtx
 

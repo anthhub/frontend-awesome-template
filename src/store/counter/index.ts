@@ -1,5 +1,5 @@
 import { storeEnhancer } from '@decorators'
-import { controlLoading } from '@decorators/store/controlLoading'
+import { controlLoading } from '@decorators/shared/controlLoading'
 import { watchPageVisible } from '@decorators/store/watchPageVisible'
 import { watchRoute } from '@decorators/store/watchRoute'
 import StoreExt from '@lib/extent/store'
@@ -29,6 +29,7 @@ class CounterStore extends StoreExt<CounterStore> {
   @controlLoading()
   async incrementAsync() {
     await wait(3000)
+    await this.setProps(({ counter }) => ({ counter: counter + 1 }))
 
     // setTimeout(() => {
     //   runInAction(() => this.counter++)
