@@ -14,6 +14,8 @@ export default abstract class CompExt<P = {}, S = {}> extends Component<P, S> {
     addGlobalClass: true,
   }
 
+  protected static $$identifyClassType: IdentifyClassType = 'PureComp'
+
   protected readonly ctx = compCtx
 
   setState<K extends keyof S>(state: ((prevState: Readonly<S>, props: P) => Pick<S, K> | S) | (Pick<S, K> | S), callback?: () => any): Promise<S> {
@@ -28,4 +30,6 @@ export default abstract class CompExt<P = {}, S = {}> extends Component<P, S> {
   }
 }
 
-export abstract class PageCompExt<P = IRootStore, S = {}> extends CompExt<P & IRootStore, S> {}
+export abstract class PageCompExt<P = IRootStore, S = {}> extends CompExt<P & IRootStore, S> {
+  protected static $$identifyClassType: IdentifyClassType = 'PageComp'
+}

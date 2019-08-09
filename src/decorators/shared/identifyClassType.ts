@@ -4,16 +4,11 @@ export default function identifyClassType<T extends new (...args: any[]) => any>
 
     constructor(...args: any[]) {
       super(...args)
+      console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: defaultfunctionidentifyClassType<Textendsnew -> WrappedComponent', WrappedComponent)
 
-      if (this.updater) {
-        IdentifyClassTypeClass.$$identifyClassType = '$$store'
-      } else if (this.config) {
-        IdentifyClassTypeClass.$$identifyClassType = '$$pageComp'
-      } else if (this.config) {
-        IdentifyClassTypeClass.$$identifyClassType = '$$pageComp'
+      if (this.config) {
+        IdentifyClassTypeClass.$$identifyClassType = 'Page'
       }
-
-      console.log('%c%s', 'color: #e30aee;font-size:15px', '===TQY===: extends -> constructor -> this', this)
     }
   }
 }

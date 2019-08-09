@@ -14,6 +14,8 @@ export default abstract class StoreExt<T = IPlainObject> {
   }
   static rootStore: IRootStore
 
+  protected static $$identifyClassType: IdentifyClassType = 'Store'
+
   protected readonly api = api
   protected readonly ctx = storeCtx
 
