@@ -1,8 +1,8 @@
-import { storeEnhancer } from '@decorators'
+import { allEnhancer } from '@decorators'
 import StoreExt from '@lib/extent/store'
 import { observable } from 'mobx'
 
-@storeEnhancer
+@allEnhancer
 class ViewStore extends StoreExt<ViewStore> {
   @observable showSkeleton = false
 }
