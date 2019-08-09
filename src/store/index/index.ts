@@ -1,10 +1,10 @@
-import { storeEnhancer } from '@decorators'
+import { allEnhancer } from '@decorators'
 // import { watchProps } from '@decorator/watchProps'
 import { watchRoute } from '@decorators/store/watchRoute'
 import StoreExt from '@lib/extent/store'
 import { observable } from 'mobx'
 
-@storeEnhancer
+@allEnhancer
 class IndexStore extends StoreExt {
   @observable counter = 4
 

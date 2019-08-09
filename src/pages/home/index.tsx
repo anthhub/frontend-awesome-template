@@ -1,13 +1,13 @@
 import { Button, Text, View } from '@tarojs/components'
 import Taro, { Config } from '@tarojs/taro'
 
-import { pageEnhancer } from '@decorators'
+import { allEnhancer } from '@decorators'
 import { PageCompExt } from '@lib/extent/comp'
 
 import SkeletonWarpper from '@container/SkeletonWarpper'
 import './index.scss'
 
-@pageEnhancer
+@allEnhancer
 class Index extends PageCompExt {
   static defaultProps = { xx: 1 }
 

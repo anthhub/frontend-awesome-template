@@ -1,4 +1,4 @@
-import { storeEnhancer } from '@decorators'
+import { allEnhancer } from '@decorators'
 import { controlLoading } from '@decorators/shared/controlLoading'
 import { watchPageVisible } from '@decorators/store/watchPageVisible'
 import { watchRoute } from '@decorators/store/watchRoute'
@@ -6,7 +6,7 @@ import StoreExt from '@lib/extent/store'
 import { action, observable, runInAction } from 'mobx'
 import { wait } from 'tank-utils'
 
-@storeEnhancer
+@allEnhancer
 class CounterStore extends StoreExt<CounterStore> {
   @observable counter = 0
 

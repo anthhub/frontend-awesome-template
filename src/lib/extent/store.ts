@@ -5,7 +5,7 @@ import { action } from 'mobx'
 
 let propsMergedQueue: any = []
 
-export default abstract class StoreExt<T> {
+export default abstract class StoreExt<T = IPlainObject> {
   protected get store() {
     return StoreExt.rootStore
   }

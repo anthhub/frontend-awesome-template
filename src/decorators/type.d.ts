@@ -1,2 +1,2 @@
 declare module '@tarojs/mobx'
-type IdentifyClassType = '$$store' | '$$pureComp' | '$$pageComp' | '$$page' | null
+type IdentifyClassType = 'Store' | 'PureComp' | 'PageComp' | 'Page' | 'All' | null

@@ -1,7 +1,7 @@
 import { Button, Text, View } from '@tarojs/components'
 import Taro, { Config } from '@tarojs/taro'
 
-import { pageEnhancer } from '@decorators'
+import { allEnhancer } from '@decorators'
 import { PageCompExt } from '@lib/extent/comp'
 
 import SkeletonWarpper from '@container/SkeletonWarpper'
@@ -12,7 +12,7 @@ import { disabledTillEnd } from '@decorators/shared/disabledTillEnd'
 // import { throttleDecorator } from '@decorators/shared/throttleDecorator'
 import './index.scss'
 
-@pageEnhancer
+@allEnhancer
 class Index extends PageCompExt {
   static defaultProps = {}
 
@@ -38,13 +38,17 @@ class Index extends PageCompExt {
   }
 
   decrement() {
-    const { counterStore } = this.props
+    const {
+      counterStore: { dispatch },
+    } = this.props
+    dispatch( {type : '' })
     // counterStore.decrement()
   }
 
   @controlLoading('skeleton')
   async incrementAsync() {
     const { counterStore } = this.props
+
     await counterStore.incrementAsync()
   }
 

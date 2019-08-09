@@ -1,6 +1,6 @@
-import { storeEnhancer } from '@decorators'
+import { allEnhancer } from '@decorators'
 
-@storeEnhancer
+@allEnhancer
 class HomeStore {}
 
 export default new HomeStore()
