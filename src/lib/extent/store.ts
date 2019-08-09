@@ -12,6 +12,11 @@ export default abstract class StoreExt<T = IPlainObject> {
   protected get router() {
     return this.ctx.router
   }
+
+  protected get system() {
+    return this.ctx.system
+  }
+
   static rootStore: IRootStore
 
   protected static $$identifyClassType: IdentifyClassType = 'Store'

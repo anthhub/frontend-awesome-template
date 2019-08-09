@@ -10,6 +10,10 @@ export default abstract class CompExt<P = {}, S = {}> extends Component<P, S> {
     return this.ctx.router
   }
 
+  protected get system() {
+    return this.ctx.system
+  }
+
   static options = {
     addGlobalClass: true,
   }
